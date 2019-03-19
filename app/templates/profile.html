@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block main %}
+  <h1 style="padding-bottom: 2rem;">Add Profile</h1>
+  <div class="panel-body" >
+    <form action="/profile" method="post" enctype="multipart/form-data">
+      {{ myform.csrf_token }}
+      <div class="form-group">
+        <label for="firstname"><strong>First Name</strong></label>
+        <input class="form-control" type="text" name="firstname"/>
+      </div>
+      
+      <div class="form-group">
+        <label for="lastname"><strong>Last Name</strong></label>
+        <input class="form-control" type="text" name="lastname"/>
+      </div>
+      
+      <div class="form-group">
+        <label for="gender"><strong>Gender</strong></label>
+        <select class="form-control" name="gender">
+          <option value="" disabled selected>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="email"><strong>E-mail</strong></label>
+        <input class="form-control" type="text" name="email" placeholder="e.g jdoe@example.com"/>
+      </div>
+      
+      <div class="form-group">
+        <label for="location"><strong>Location</strong></label>
+        <input class="form-control" type="text" name="location" placeholder="e.g Kingston, Jamaica"/>
+      </div>
+      
+      <div class="form-group">
+        <label for="biography"><strong>Biography</strong></label>
+        <textarea rows="5" class="form-control" name="biography"></textarea>
+      </div>
+      
+        <label><strong>Profile Picture</strong></label>
+        <label style="padding: 10px; padding-left:25px; padding-right:25px; background: white; display: table; border: solid 1px #b8bec6; border-radius:15px">
+          Browse...
+          <input type="File" size="60" name="file" style="display: none;"/>
+        </label><br>
+        
+        <input type="submit" class="btn btn-primary" value="Add Profile"/>
+       
+    </form>
+  </div>
+{% endblock %}

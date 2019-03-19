@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Project 1</title>
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/app.css') }}" rel="stylesheet">
+    
+  </head>
+    <body>
+        <header>
+            {% include "header.html" %}
+        </header>
+        <main class="container">
+          {%  with messages = get_flashed_messages(with_categories=true) %}
+            {%  if messages %}
+              {%  for category, message in messages %}
+                <div class="alert alert-{{  category }}">{{  message }}</div>
+              {%  endfor %}
+            {%  endif %}
+          {% endwith %}
+          {% block main  %}{% endblock %}
+        </main>
+  </body>
+</html>

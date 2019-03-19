@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+
+
+{% block main %}
+
+<div id="prof">
+    <img id="profimg" src="/static/uploads/{{ user.photoname }}" width="150" height="150">
+    <div id="allside">
+        <h3 id="name">{{ user.firstname }} {{ user.lastname }}</h3>
+        <p class="side">{{ user.email }}</p>
+        <p class="side">{{ user.location }}</p>
+        <p class="side">Joined: {{ user.date }}</p>
+    </div>
+
+    <div id="botext">
+        <p><strong>About Me</strong></p>
+        <p>{{ user.biography }}</p>
+    </div>
+    <div id="but">
+        <button id="but1" type="button">View Profile</button><button type="button" id="but2">Follow</button>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+    {% for user in users %}
+        <div id="lstprof">
+            <img id="lstimg" src="/static/uploads/{{ user.photoname }}" width="100" height="100">
+            <span id="alllstside">
+                <p id="lstname"><strong>{{ user.firstname }} {{ user.lastname }}</strong></p>
+                <p class="lstside">{{ user.gender }}</p>
+                <p class="lstside">{{ user.location }}</p>
+            </span>
+            <span id="lstbut">
+              <button id="lstbut1" type="button">Send Messages</button>
+            </span>
+        </div>
+    {% endfor %}
+
+{% endblock %}
